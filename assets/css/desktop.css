@@ -1,0 +1,64 @@
+body,html{
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    font-family: 'Trebuchet MS', Helvetica, sans-serif;
+
+}
+header{
+    height: 8%;
+    border-bottom: 4px solid black;
+    background-color: azure;
+}
+.buttons{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+.btns{
+    display: flex;
+    align-items: center;
+    height: 50%;
+    margin:2%;
+    border-left: 2px solid gray;
+}
+.homeBut{
+    margin:2%;
+}
+.RLBtn{
+    margin: 2%;
+}
+.validation{
+    margin:1%;
+}
+.formRL{
+    display: flex;
+    justify-content: center;
+}
+.fieldRL{
+    display: flex;
+    justify-content: space-between;
+    margin:1%;
+}
+.fieldsRL{
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid black;
+    
+}
+.submitBtn{
+    width: 100%;
+    display:flex;
+    justify-content: center;
+}
+.inputForm:invalid:not(:placeholder-shown) {
+    border-color: red;
+}
+.inputForm:valid:not(:placeholder-shown) {
+    border-color: rgb(0, 255, 0);
+}
+#message{
+    margin:12px;
+}
