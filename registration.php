@@ -31,11 +31,11 @@
                         </li>
                         <li class="fieldRL">
                             <label for="password">Пароль:</label>
-                            <input id ="password" onChange="onChange()" class="inputForm" placeholder="password123" name="password" type="input" required pattern="(?=.*[0-9])(?=.*[a-z]|.*[а-я])[a-zA-Zа-яА-Я0-9]{6,}">
+                            <input id ="password" type="password" onChange="onChange()" class="inputForm" placeholder="password123" name="password" type="input" required pattern="(?=.*[0-9])(?=.*[a-z]|.*[а-я])[a-zA-Zа-яА-Я0-9]{6,}">
                         </li>
                         <li class="fieldRL">
                             <label >Подтвердите пароль:</label>
-                            <input id="confirm_password" onChange="onChange()" class="inputForm" placeholder="password123" name="confirm_password" type="input" required >
+                            <input id="confirm_password" type="password" onChange="onChange()" class="inputForm" placeholder="password123" name="confirm_password" type="input" required >
                         </li>
                         <li class="fieldRL">
                             <label for="mail">Почта:</label>

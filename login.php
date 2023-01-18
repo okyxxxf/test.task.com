@@ -31,7 +31,7 @@
                         </li>
                         <li class="fieldRL">
                             <label for="password">Пароль:</label>
-                            <input id ="password" class="inputForm" placeholder="password123" name="password" type="input" required pattern="(?=.*[0-9])(?=.*[a-z]|.*[а-я])[a-zA-Zа-яА-Я0-9]{6,}">
+                            <input id ="password" type="password" class="inputForm" placeholder="password123" name="password" type="input" required pattern="(?=.*[0-9])(?=.*[a-z]|.*[а-я])[a-zA-Zа-яА-Я0-9]{6,}">
                         </li>
                     </ul>
                     <div class="submitBtn">
