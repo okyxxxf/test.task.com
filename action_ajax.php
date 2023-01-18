@@ -20,11 +20,17 @@ class Registration{
         if ($this->checkUser()){
             $this->cryptPassword();
             $this->database->addUser($this->login, $this->password, $this->mail, $this->name);
-            print("Зарегистрирован успешно!");
+            $arr["responce"] = "Hello ".$this->name;
+            $arr["responceCheck"] = 1;
+            session_start();
+            setcookie("name",$this->name);
         }
         else{
-            print("С таким логином/почтой уже зарегистрирован пользователь");
+            $arr["responce"] ="С таким логином/почтой уже зарегистрирован пользователь";
+            $arr["responceCheck"] = 0;
         }
+        setcookie("responce", $arr["responce"]);
+        echo json_encode($arr);
     }
     private function checkUser(){
         $json = $this->database->getJSON();
@@ -81,24 +87,27 @@ class Login extends Registration{
         for ($i = 0;$i < count($json["users"]);$i++){
             if ($json["users"][$i]["login"] == $_GET["login"]){
                 if ($json["users"][$i]["password"] == $this->password){
-                    print("Добро пожаловать");
+                    $arr["responce"] = "Hello ".$_COOKIE["name"];   
+                    $arr["name"] = $_COOKIE["name"];
+                    $arr["responceCheck"] = 1;
                     break;
                 }
                 else{
-                    print("Неверный пароль");
+                    $arr['responce'] = "Неверный пароль";
+                    $arr["responceCheck"] = 0;
+                    break;
                 }
             }else if ($i == count($json["users"])-1){
-                print("Неверный логин");
+                $arr['responce'] = "Неверный логин";
+                $arr["responceCheck"] = 0;
             }
         }
-        
+        setcookie("responce", $arr["responce"]);
+        echo json_encode($arr);
     }
-
 }
 
-
-
-
+header('Content-Type: application/json');
 if(isset($_GET["login"]) and isset($_GET["password"]) and isset($_GET["mail"]) and isset($_GET["name"])){
     $reg = new Registration($_GET["login"],$_GET["password"],$_GET["mail"],$_GET['name'],"js1");
     $reg->createUser();

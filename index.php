@@ -28,7 +28,7 @@
         <article class="validation">
             <?php
                 if (isset($_COOKIE["name"])){
-                    echo "Добро пожаловать ".$_COOKIE["name"];
+                    echo "Hello ".$_COOKIE["name"];
                 }else{
                     echo "Пройдите ауентификацию";
                 }

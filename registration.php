@@ -14,15 +14,25 @@
                 <a class="RLBtn" href="index.php"><button><strong>Домой</strong></button></a>
             </div>
             <div class="btns">
-                <a class="RLBtn" href="registration.php"><button class="regBtn" type="button"><strong>Регистрация</strong></button></a>
-                <a class="RLBtn" href="login.php"><button class="logBtn" type="button"><strong>Вход</strong></button></a>
+            <?php
+                    if (isset($_COOKIE["name"])){
+                        echo "<form id='ExitBtn'><a class='RLBtn'><button type='submit'><strong>Выйти</strong></button></a></form>";
+                    }else{
+                        echo "<a class='RLBtn' href='registration.php'><button class='regBtn' type='button'><strong>Регистрация</strong></button></a> 
+                        <a class='RLBtn' href='login.php'><button class='logBtn' type='button'><strong>Вход</strong></button></a>";
+                    }
+                ?>
             </div>
         </div>
     </header>
     <main>
         <article class="validation">
             <div class="formRL">
-                <form id="formRegistration" method="get">
+            <?php
+                if (isset($_COOKIE["name"])){
+                    echo $_COOKIE["responce"];
+                }else{
+                    echo '<form id="formRegistration" method="get">
                     <legend>Регистрация:</legend>
                     <ul class="fieldsRL">
                         <li class="fieldRL">
@@ -49,7 +59,9 @@
                     <div class="submitBtn">
                         <button type="submit" name="submit"><strong>Зарегистрироваться</strong></button>
                     </div>
-                </form>
+                </form>';
+                }
+                ?>
             </div>
         </article>
         <article>
